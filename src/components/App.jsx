@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, lazy } from 'react';
-import { refreshUser } from 'Redux/Authorization/operations'; // для обновления токена
+import { refreshUser } from 'redux/Authorization/operations'; // для обновления токена
 import { PrivateRoute } from './PrivateRoute'; // для захисту роутів
 import { RestrictedRoute } from './RestrictedRoute'; // для захисту роутів
 import { ToastContainer } from 'react-toastify'; // для вспливаючих повідомлень

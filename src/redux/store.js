@@ -1,11 +1,37 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { contactsReducer } from './contactsSlice';
-import { filterReducer } from './filterSlice';
+import { authReduser } from './Autorization/authSlise';
+import { contactsReduser } from './Contacts/contactSlise.jsx';
+import { filterReducer } from './Contacts/filterSlice';
+import storage from 'redux-persist/lib/storage'; // це для локалстореджа
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+
+const persistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
 
 export const store = configureStore({
-  // це об'єкт, який містить в собі всі редюсери
   reducer: {
-    contacts: contactsReducer,
+    auth: persistReducer(persistConfig, authReduser),
     filter: filterReducer,
+    contacts: contactsReduser,
   },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
+
+export const persistor = persistStore(store);
