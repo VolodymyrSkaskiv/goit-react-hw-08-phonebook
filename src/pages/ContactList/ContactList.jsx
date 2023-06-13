@@ -20,11 +20,11 @@ import {
   deleteContact,
   redactContatc,
   fetchContacts,
-} from 'Redux/Contacts/operations'; // для операцій
+} from 'redux/Contacts/operations'; // для операцій
 
 import { useEffect, useState } from 'react';
-import { Filter } from 'components/Filter/Filter';
-import { ContactForm } from 'components/ContactForm/ContactForm';
+import { Filter } from 'components/filter/Filter';
+import { ContactForm } from 'components/contactForm/ContactForm';
 import { Button, Popconfirm } from 'antd'; // для кнопки видалення
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons'; // для іконок
 

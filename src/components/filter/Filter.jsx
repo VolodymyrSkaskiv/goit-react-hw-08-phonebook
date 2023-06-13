@@ -1,20 +1,22 @@
-import { Input, Label } from './Filter.styled';
-import { setFilter } from 'redux/filterSlice';
+import { WrapperFiler, FilterInput, FilterP } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilter } from 'redux/selectors';
+import { filtration } from 'redux/Contacts/filterSlice';
+import { SearchOutlined } from '@ant-design/icons';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(selectFilter);
+  const filter = useSelector(state => state.filter); // масив контактів
 
   return (
-    <Label>
-      Find contacts by name
-      <Input
+    <WrapperFiler>
+      <FilterP>Find contacts by name</FilterP>
+
+      <FilterInput
+        prefix={<SearchOutlined />} // іконка
         type="text"
         value={filter}
-        onChange={event => dispatch(setFilter(event.target.value.trim()))} // викликає редюсер з екшеном setFilter
+        onChange={e => dispatch(filtration(e.target.value))} // фільтруємо контакти
       />
-    </Label>
+    </WrapperFiler>
   );
 };
