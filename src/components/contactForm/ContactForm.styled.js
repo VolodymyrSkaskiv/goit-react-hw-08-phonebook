@@ -1,43 +1,45 @@
 import styled from 'styled-components';
+import { Button, Form, Input, Modal } from 'antd';
+import { PhoneOutlined, UserAddOutlined } from '@ant-design/icons';
 
-export const Form = styled.form`
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 15px;
-  margin-bottom: 30px;
-  border: 1px solid #000000;
-  border-radius: 4px;
+export const FormWrap = styled(Form)`
+  margin: 0 auto;
 `;
 
-export const Label = styled.label`
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+export const AddModalBtn = styled(Button)`
+  width: 100%;
+  height: 35px;
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const Input = styled.input`
-  width: 200px;
-  min-height: 20px;
-  border: 1px solid #c4c4c4;
-  border-radius: 3px;
+export const UserIcon = styled(UserAddOutlined)`
+  color: #c7c6c6;
 `;
 
-export const SubmitButton = styled.button`
-  width: 120px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin-top: 10px;
-  border: 1px solid #c4c4c4;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: transparent;
-  transition: background-color 0.5s ease;
+export const PhoneIcon = styled(PhoneOutlined)`
+  color: #c7c6c6;
+`;
 
-  &:hover,
-  &:focus {
-    background-color: #c4c4c4;
+export const InputForm = styled(Input)`
+  height: 35px;
+  font-size: 18px;
+  width: 100%;
+`;
+
+export const AddModal = styled(Modal)`
+  text-align: center;
+  .ant-modal-content {
+    width: 340px;
+    height: 225px;
+    position: absolute;
+    top: 50%;
+    left: 20%;
   }
+`;
+
+export const OpenAddModal = styled(Button)`
+  margin: 15px 0;
 `;
